@@ -3,7 +3,6 @@ describe('Hacker Stories', () => {
   const newTerm = 'Cypress'
 
   context('Hitting The Real API', () => {
-
     beforeEach(() => {
       cy.intercept({
         method: 'GET',
@@ -49,13 +48,12 @@ describe('Hacker Stories', () => {
       cy.wait('@getNewTermStories')
       cy.getLocalStorage('search').should('be.equal', newTerm)
 
-      
       cy.get(`button:contains(${initialTerm})`)
         .should('be.visible')
         .click()
       cy.wait('@getSearch')
 
-      cy.getLocalStorage('search').should('be.equal', initialTerm)      
+      cy.getLocalStorage('search').should('be.equal', initialTerm)
 
       cy.get('.item').should('have.length', 20)
         .first()
@@ -121,17 +119,14 @@ describe('Hacker Stories', () => {
           })
 
           it('orders by author', () => {
-
             cy.get('.list-header-button:contains(Author)').should('be.visible').as('Author').click()
             cy.get('.item').first().should('be.visible').and('contain', stories.hits[0].author)
-           
+
             cy.get('@Author').click()
             cy.get('.item').first().should('be.visible').and('contain', stories.hits[1].author)
-          
           })
 
           it('orders by comments', () => {
-
             cy.get('.list-header-button:contains(Title)').should('be.visible').as('TitleComments').click()
             cy.get('.item').first().should('be.visible').and('contain', stories.hits[0].num_comments)
 
@@ -140,13 +135,11 @@ describe('Hacker Stories', () => {
           })
 
           it('orders by points', () => {
-
             cy.get('.list-header-button:contains(Title)').should('be.visible').as('Points').click()
             cy.get('.item').first().should('be.visible').and('contain', stories.hits[0].points)
 
             cy.get('@Points').click()
             cy.get('.item').first().should('be.visible').and('contain', stories.hits[1].points)
-
           })
         })
       })
@@ -173,9 +166,8 @@ describe('Hacker Stories', () => {
           .clear()
       })
 
-      it('shows no story when none is returned',()=>{
-
-        cy.get('.item').should('not.exist')        
+      it('shows no story when none is returned', () => {
+        cy.get('.item').should('not.exist')
       })
 
       it('types and hits ENTER', () => {
@@ -240,7 +232,7 @@ describe('Hacker Stories', () => {
           cy.get('.last-searches')
             .within(() => {
               cy.get('button').should('have.length', 5)
-          })
+            })
         })
       })
     })
@@ -278,8 +270,8 @@ it.only('shows a "Loading ..." state before showing the results', () => {
     'GET',
     '**/search**',
     {
-    delay: 1000,
-    fixture: 'stories'
+      delay: 1000,
+      fixture: 'stories'
     }
   ).as('getDelayedStories')
 
