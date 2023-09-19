@@ -265,7 +265,7 @@ context('Errors', () => {
   })
 })
 
-it.only('shows a "Loading ..." state before showing the results', () => {
+it('shows a "Loading ..." state before showing the results', () => {
   cy.intercept(
     'GET',
     '**/search**',
