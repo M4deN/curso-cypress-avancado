@@ -1,5 +1,7 @@
 # Testes Automatizados com Cypress - Avançado
 
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/M4deN/curso-cypress-avancado/ci.yml?label=Test%20Workflows&logo=GitHub&style=for-the-badge)
+
 👋 Seja bem vindo(a)!
 
 É muito bom tê-lo(a) aqui. Tenho certeza que você vai adorar este curso. ❤️
